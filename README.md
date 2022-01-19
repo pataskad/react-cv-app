@@ -1,3 +1,7 @@
+# CV Application project
+
+This is a practice project focused at separating different sections of a CV application into separate components using React.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
