@@ -1,5 +1,7 @@
 # CV Application project
 
+[Live Demo Coming Soon]()
+
 This is a practice project focused at separating different sections of a CV application into separate components using React.
 
 # Getting Started with Create React App
