@@ -1,21 +1,16 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react';
 import Bio from "./components/Bio";
-import logo from "./styles/top.jpeg";
+import Header from "./components/Header";
 
 class App extends Component {
+  // no props required/being passed, hence no constructor/super
   
   render() {
-
     return (
       <div className="container">
-
-        <img src={logo} id="top-logo" alt="TOP logo"></img>
-        <hr className="line-styling"></hr>
-        
+        <Header /> 
         <Bio />
-        <hr className="line-styling"></hr>
-      
       </div>
     );
   }

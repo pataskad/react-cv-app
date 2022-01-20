@@ -32,8 +32,11 @@ code {
   height: 15vh;
   margin: 30px 0 20px 0;
 }
+#github-logo {
+  margin-bottom: 10px;
+}
 .current-bio {
-  margin: 5vh 0 5vh 0;
+  margin: 25px auto;
   position: relative;
 }
 #edit-icon {
@@ -46,4 +49,38 @@ code {
 }
 #edit-icon:active {
   transform: translateY(1.5px);
+}
+.form-labels {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.form-inputs {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+  font-size: 15px;
+  padding: 8px;
+}
+.form-inputs:focus-visible {
+  outline: none;
+  box-shadow: 0 0 5px 1px rgb(1, 93, 179);
+}
+.formButtons {
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  margin: 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.formButtons:active {
+  transform: translateY(1px);
+}
+#formSubmit {
+  background-color: rgb(10, 159, 10);
+}
+#formCancel {
+  background-color: rgb(191, 31, 31);
 }
