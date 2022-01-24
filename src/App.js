@@ -2,16 +2,18 @@
 import React, { Component } from "react";
 import Bio from "./components/Bio";
 import Header from "./components/Header";
+import Experience from "./components/Experience";
 
 class App extends Component {
   // no props required/being passed, hence no constructor/super
 
   render () {
     return (
-      <div className="container">
+      <>
         <Header />
         <Bio />
-      </div>
+        <Experience />
+      </>
     );
   }
 }
