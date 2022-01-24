@@ -49,7 +49,7 @@ class Bio extends Component {
 
     if (editActive) {
       return (
-        <div className="current-bio">
+        <section className="current-bio">
           <form onSubmit={this.submitHandler}>
             <label className="form-labels" htmlFor="fullName">
               Full Name
@@ -101,11 +101,11 @@ class Bio extends Component {
           </form>
 
           <hr className="line-styling"></hr>
-        </div>
+        </section>
       );
     } else {
       return (
-        <div className="current-bio">
+        <section className="current-bio">
           <img
             id="edit-icon"
             onClick={this.toggleEditView}
@@ -117,7 +117,7 @@ class Bio extends Component {
             {bio.email} | {bio.phone}
           </p>
           <hr className="line-styling"></hr>
-        </div>
+        </section>
       );
     }
   }
