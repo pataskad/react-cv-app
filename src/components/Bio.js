@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import editLogo from "../styles/reshot-icon-edit-Q9X5K68PDE.svg";
 
 /*
- * Bio.js contains user information such as name, email, and phone number at a minimum
+ * Bio.js contains user information such as name, email, and phone number
  *
  */
 
@@ -37,12 +37,22 @@ class Bio extends Component {
 
     this.setState({
       bio: {
-        name: document.getElementById("fullName").value,
+        name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("phoneNumber").value
       }
     });
   };
+
+  handleChange = (e) => {
+    const value = e.target.value;
+    this.setState({
+      bio: {
+        [e.target.name]: value,
+        ...this.state.bio
+      }
+    });
+  }
 
   render () {
     const { bio, editActive } = this.state;
@@ -51,13 +61,13 @@ class Bio extends Component {
       return (
         <section className="current-bio">
           <form onSubmit={this.submitHandler}>
-            <label className="form-labels" htmlFor="fullName">
+            <label className="form-labels" htmlFor="name">
               Full Name
             </label>
             <input
               className="form-inputs"
               onChange={this.handleChange}
-              id="fullName"
+              id="name"
               type="text"
               placeholder={bio.name}
               required

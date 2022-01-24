@@ -3,7 +3,7 @@ import logo from "../styles/top.jpeg";
 import githubLogo from "../styles/GitHub-Mark-32px.png";
 
 /*
- * Header.js will contain header elements,
+ * Header.js contains header elements,
  * Such as TOP, Title, and Github logo with link to source code
  *
  */

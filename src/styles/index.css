@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: whitesmoke;
+  font-style: italic;
 }
 
 code {
@@ -54,6 +55,20 @@ code {
 .current-bio > h3 {
   color: var(--red);
 }
+.job-experience {
+  margin: 25px auto;
+  color: var(--black);
+  position: relative;
+}
+#experience-title {
+  color: var(--black);
+  text-align: left;
+  margin-left: 50px;
+}
+#description {
+  resize: vertical;
+  max-height: 300px;
+}
 #edit-icon {
   height: 2em;
   position: absolute;
@@ -64,6 +79,9 @@ code {
 }
 #edit-icon:active {
   transform: translateY(1.5px);
+}
+.date-styling {
+  color: var(--red);
 }
 .form-labels {
   display: block;
