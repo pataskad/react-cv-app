@@ -13,14 +13,14 @@ class Header extends Component {
 
   render () {
     return (
-      <section className="header">
+      <header>
         <img src={logo} id="top-logo" alt="TOP logo"></img>
         <h1>React CV App</h1>
         <a href="https://github.com/pataskad/react-cv-app">
           <img src={githubLogo} id="github-logo" alt="GitHub logo"></img>
         </a>
         <hr className="line-styling"></hr>
-      </section>
+      </header>
     );
   }
 }

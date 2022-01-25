@@ -43,7 +43,7 @@ code {
 #github-logo {
   margin-bottom: 10px;
 }
-.header > h1 {
+header > h1 {
   color: var(--black);
   margin-top: 0;
 }
@@ -60,6 +60,16 @@ code {
   color: var(--black);
   position: relative;
 }
+.job-experience > h2 {
+  margin-bottom: 0;
+}
+.job-experience > p {
+  margin-top: 0;
+}
+.titleAndTenure {
+  display: inline-flex;
+  align-items: baseline;
+}
 #experience-title {
   color: var(--black);
   text-align: left;
@@ -68,6 +78,13 @@ code {
 #description {
   resize: vertical;
   max-height: 300px;
+}
+.descriptionDisplay {
+  margin: auto;
+  inline-size: 50%;
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-wrap: break-word;
 }
 #edit-icon {
   height: 2em;
@@ -82,6 +99,7 @@ code {
 }
 .date-styling {
   color: var(--red);
+  margin-left: 10px;
 }
 .form-labels {
   display: block;
