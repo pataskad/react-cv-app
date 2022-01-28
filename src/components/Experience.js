@@ -14,13 +14,15 @@ class Experience extends Component {
 
     this.state = {
       editActive: false,
-      experience: {
-        company: "Awesome Inc.",
-        title: "Software Engineer",
-        startDate: "May 2018",
-        endDate: "July 2020",
-        description: "Did a little of this and a little of that"
-      }
+      experience: [
+        {
+          company: "Awesome Inc.",
+          title: "Software Engineer",
+          startDate: "May 2018",
+          endDate: "July 2020",
+          description: "Did a little of this and a little of that"
+        }
+      ]
     };
   };
 
@@ -39,13 +41,16 @@ class Experience extends Component {
   submitHandler = () => {
     this.toggleEditView();
     this.setState({
-      experience: {
-        company: document.getElementById("company").value,
-        title: document.getElementById("title").value,
-        startDate: document.getElementById("startDate").value,
-        endDate: document.getElementById("endDate").value,
-        description: document.getElementById("description").value
-      }
+      experience: [
+        // ...this.state.experience
+        {
+          company: document.getElementById("company").value,
+          title: document.getElementById("title").value,
+          startDate: document.getElementById("startDate").value,
+          endDate: document.getElementById("endDate").value,
+          description: document.getElementById("description").value
+        }
+      ]
     });
   };
 
@@ -53,6 +58,7 @@ class Experience extends Component {
     const { editActive, experience } = this.state;
     if (editActive) {
       return (
+        // render form component with experiences passed as props?
         <section className="current-bio">
           <h2 id="experience-title">Work Experience</h2>
           <form onSubmit={this.submitHandler}>
@@ -63,7 +69,7 @@ class Experience extends Component {
               className="form-inputs"
               id="company"
               type="company"
-              placeholder={experience.company}
+              placeholder={experience[0].company}
               required />
 
             <label className="form-labels" htmlFor="title">
@@ -73,7 +79,7 @@ class Experience extends Component {
               className="form-inputs"
               id="title"
               type="text"
-              placeholder={experience.title}
+              placeholder={experience[0].title}
               required />
 
             <label className="form-labels" htmlFor="startDate">
@@ -104,7 +110,7 @@ class Experience extends Component {
               rows="8"
               cols="50"
               maxLength="750"
-              placeholder={experience.description}
+              placeholder={experience[0].description}
               required />
 
             <br></br>
@@ -133,15 +139,15 @@ class Experience extends Component {
             alt="edit icon"
           ></img>
 
-          <h2>{experience.company}</h2>
+          <h2>{experience[0].company}</h2>
           <section className="titleAndTenure">
-            <h3>{experience.title} |</h3>
+            <h3>{experience[0].title} |</h3>
             <p className="date-styling">
-              {format(new Date(experience.startDate), "LLLL yyyy ")}
-                -{format(new Date(experience.endDate), " LLLL yyyy")}
+              {format(new Date(experience[0].startDate), "LLLL yyyy ")}
+                -{format(new Date(experience[0].endDate), " LLLL yyyy")}
             </p>
           </section>
-          <p className="descriptionDisplay">{experience.description}</p>
+          <p className="descriptionDisplay">{experience[0].description}</p>
 
           <hr className="line-styling"></hr>
         </section>
