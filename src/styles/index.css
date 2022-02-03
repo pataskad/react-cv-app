@@ -34,6 +34,7 @@ code {
   margin: 15px;
 }
 .line-styling {
+  margin-top: 15px;
   border: 1px dotted var(--black);
 }
 #top-logo {
@@ -73,7 +74,11 @@ header > h1 {
 #experience-title {
   color: var(--black);
   text-align: left;
-  margin-left: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px var(--black);
+  margin: -10px 0 0 20px;
+  position: absolute;
 }
 #description {
   resize: vertical;
@@ -100,6 +105,13 @@ header > h1 {
 .date-styling {
   color: var(--red);
   margin-left: 10px;
+}
+.position-title {
+  display: inline-flex;
+  align-items: baseline;
+}
+.position-title > div {
+  margin: 10px;
 }
 .form-labels {
   display: block;

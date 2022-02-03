@@ -16,6 +16,7 @@ class Experience extends Component {
       editActive: false,
       experience: [
         {
+          id: 1,
           company: "Awesome Inc.",
           title: "Software Engineer",
           startDate: "May 2018",
@@ -42,7 +43,6 @@ class Experience extends Component {
     this.toggleEditView();
     this.setState({
       experience: [
-        // ...this.state.experience
         {
           company: document.getElementById("company").value,
           title: document.getElementById("title").value,
@@ -50,107 +50,124 @@ class Experience extends Component {
           endDate: document.getElementById("endDate").value,
           description: document.getElementById("description").value
         }
+        // ...this.state.experience
       ]
     });
   };
 
   render () {
     const { editActive, experience } = this.state;
+
     if (editActive) {
       return (
         // render form component with experiences passed as props?
-        <section className="current-bio">
+        <>
           <h2 id="experience-title">Work Experience</h2>
-          <form onSubmit={this.submitHandler}>
-            <label className="form-labels" htmlFor="company">
-              Company
-            </label>
-            <input
-              className="form-inputs"
-              id="company"
-              type="company"
-              placeholder={experience[0].company}
-              required />
+          <section className="current-bio">
+            <form onSubmit={this.submitHandler}>
+              <div className="position-title">
+                <div>
+                  <label className="form-labels" htmlFor="company">
+                    Company
+                  </label>
+                  <input
+                    className="form-inputs"
+                    id="company"
+                    type="company"
+                    placeholder={experience[0].company}
+                    required />
+                </div>
+                <div>
+                  <label className="form-labels" htmlFor="title">
+                    Position Title
+                  </label>
+                  <input
+                    className="form-inputs"
+                    id="title"
+                    type="text"
+                    placeholder={experience[0].title}
+                    required />
+                </div>
+              </div>
 
-            <label className="form-labels" htmlFor="title">
-              Position Title
-            </label>
-            <input
-              className="form-inputs"
-              id="title"
-              type="text"
-              placeholder={experience[0].title}
-              required />
+              <label className="form-labels" htmlFor="startDate">
+                Start Date
+              </label>
+              <input
+                className="form-inputs"
+                id="startDate"
+                type="month"
+                required />
 
-            <label className="form-labels" htmlFor="startDate">
-              Start Date
-            </label>
-            <input
-              className="form-inputs"
-              id="startDate"
-              type="month"
-              required />
+              <label className="form-labels" htmlFor="endDate">
+                End Date (Enter current date if still employed)
+              </label>
+              <input
+                className="form-inputs"
+                id="endDate"
+                type="month"
+                required />
 
-            <label className="form-labels" htmlFor="endDate">
-              End Date (Enter current date if still employed)
-            </label>
-            <input
-              className="form-inputs"
-              id="endDate"
-              type="month"
-              required />
+              <label className="form-labels" htmlFor="description">
+                  Please describe position responsibilities
+              </label>
+              <textarea
+                className="form-inputs"
+                id="description"
+                type="text"
+                rows="8"
+                cols="50"
+                maxLength="750"
+                placeholder={experience[0].description}
+                required />
 
-            <label className="form-labels" htmlFor="description">
-                Please describe position responsibilities
-            </label>
-            <textarea
-              className="form-inputs"
-              id="description"
-              type="text"
-              rows="8"
-              cols="50"
-              maxLength="750"
-              placeholder={experience[0].description}
-              required />
+              <br></br>
+              <button className="formButtons" id="formSubmit" type="submit">
+                Submit
+              </button>
+              <button
+                className="formButtons"
+                id="formCancel"
+                onClick={this.toggleEditView}>
+                Cancel
+              </button>
+            </form>
 
-            <br></br>
-            <button className="formButtons" id="formSubmit" type="submit">
-              Submit
-            </button>
-            <button
-              className="formButtons"
-              id="formCancel"
-              onClick={this.toggleEditView}>
-              Cancel
-            </button>
-          </form>
-
-          <hr className="line-styling"></hr>
-        </section>
+            <hr className="line-styling"></hr>
+          </section>
+        </>
       );
     } else {
       return (
-        <section className="job-experience">
+        <>
           <h2 id="experience-title">Work Experience</h2>
-          <img
-            id="edit-icon"
-            onClick={this.toggleEditView}
-            src={editLogo}
-            alt="edit icon"
-          ></img>
+          {experience.map((experience) => {
+            return (
+              <section className="job-experience" key={experience.id}>
+                <img
+                  id="edit-icon"
+                  onClick={this.toggleEditView}
+                  src={editLogo}
+                  alt="edit icon"
+                ></img>
+                {/* add delete button here! */}
 
-          <h2>{experience[0].company}</h2>
-          <section className="titleAndTenure">
-            <h3>{experience[0].title} |</h3>
-            <p className="date-styling">
-              {format(new Date(experience[0].startDate), "LLLL yyyy ")}
-                -{format(new Date(experience[0].endDate), " LLLL yyyy")}
-            </p>
-          </section>
-          <p className="descriptionDisplay">{experience[0].description}</p>
+                <h2>{experience.company}</h2>
+                <section className="titleAndTenure">
+                  <h3>{experience.title} |</h3>
+                  <p className="date-styling">
+                    {format(new Date(experience.startDate), "LLLL yyyy ")}
+                      -{format(new Date(experience.endDate), " LLLL yyyy")}
+                  </p>
+                </section>
+                <p className="descriptionDisplay">{experience.description}</p>
 
-          <hr className="line-styling"></hr>
-        </section>
+                <hr className="line-styling"></hr>
+              </section>
+            );
+          })}
+          {/* add new experience button, or "+" here! */}
+        </>
       );
     }
   }
